@@ -1,0 +1,132 @@
+{% load static %}
+<html>
+	<head>
+		<title>Doctor - Add New Patient</title>
+		<style type="text/css">
+			input{
+				display: block;
+				max-width: 300px;
+				border-radius: 0px;
+				border: 1px solid #000;
+				padding:10px;
+				width: 100px;
+			}
+
+			.form{
+				padding: 20px;
+				margin: 0 auto;
+				width: 500px;
+				display:grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-column-gap: 20px;
+				grid-row-gap:20px; 
+				background-color: 
+			}
+
+						body{
+				margin:0px;
+				background-color: rgb(247,246,246);
+				font-family: Arial;
+			}
+			.container{
+				display: flex;
+				flex-direction: row;
+				height: 100%;
+				flex:1;
+			}
+					.list{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+/*	width: 100%;*/
+			padding:10px;
+		}
+			.side-nav{
+				display: flex;
+				flex-direction: column;
+				width: 10px;
+				min-width: 200px;
+/*				border:1px solid #000;
+*/				height: 100%;
+				background-image: url("{% static 'img/footer_bg.jpg' %}");
+			}
+			.content{
+				display: flex;
+				flex-direction: column;
+				flex:7;
+/*				border:1px solid #000;
+*/				height: 100%;
+				padding:30px;
+			}
+			.side-nav>a{
+				display: block;
+				padding-top:40px;
+				padding-bottom: 40px;
+				text-align: center;
+				background-color: rgb(247,246,246,0.8);
+
+			}
+			.side-nav>a:hover{
+				background-color: #ccc;
+			}
+			th{
+				width: 400px;
+				background-color: #fff;
+				padding:20px;
+				padding-top:30px;
+				padding-bottom: 30px;
+				text-align: left;
+			}
+			table{
+				width: 800px;
+			}
+			td{
+				padding: 20px;
+				background-color: rgba(0,0,0,0.1);
+			}
+			a{
+				color:#f44277;
+			}
+		</style>
+	</head>
+
+	<body>
+		{% if status == 'saved' %}
+			<script>
+				alert("Patient created successfully. Default Password: 12345");
+			</script>
+		{% endif %}
+		<div class="container">
+		<div class="side-nav">
+			<div style="height: 140;display: flex;justify-content: center;align-items: center;">
+				<img style="display: block;" width="80" height="100" src="{% static 'img/logo.png' %}">
+			</div>
+			<a href='/doctor/profile'>Profile</a>
+			<a href="/doctor/view/patients">Patients</a>
+			<a href="/doctor/patients/predict">Results</a>
+		</div>
+		<div class="content">
+			<div class="list">
+				<a href="/logout" style="color:pink;">Logout</a>
+			</div>
+			<!-- <img src="" width="40" height="40" style="float: left;"> --><h1>Hi, Admin/Doctor</h1>
+
+			<h2 style="text-align: center;">ADD NEW PATIENT</h2>
+			<form action="/doctor/patients/add" method="POST">
+				{% csrf_token %}
+			<div>
+			<div style="width:500px;margin: 0 auto;">
+				<label for="name">Name: </label><input style="display: block;width: 500px;margin-bottom: 20px;" id="name" name="name" type="text">
+				<label for="email">Email: </label><input style="display: block;width: 500px;margin-bottom: 20px;" id="email" name="email" type="text">
+				<label>Phone: </label><input style="display: block;width: 500px;margin-bottom: 20px;" id="phone" name="phone" type="text">
+			</div>
+			<div class="form">
+				{{form}}
+				<button type="submit" style="margin:0 auto;">Submit</button>
+			</div>
+			
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

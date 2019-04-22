@@ -1,0 +1,169 @@
+{% load static %}
+<html>
+	<head>
+		<title>Patient - Results</title>
+		<style type="text/css">
+			input{
+				display: block;
+				max-width: 500px;
+				border-radius: 0px;
+				border: 1px solid black;
+/*				background-color: rgb(247,246,246);
+*/				padding:10px;
+				width: 300px;
+			}
+/*			label{
+				display: none;
+			}*/
+
+			.form{
+				padding: 20px;
+				margin: 0 auto;
+				width: 800px;
+				display:grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-column-gap: 20px;
+				grid-row-gap:20px; 
+				background-color: 
+			}
+
+						body{
+				margin:0px;
+				background-color: rgb(247,246,246);
+				font-family: Arial;
+			}
+			.container{
+				display: flex;
+				flex-direction: row;
+				height: 100%;
+				flex:1;
+			}
+					.list{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+/*	width: 100%;*/
+			padding:10px;
+		}
+			.side-nav{
+				display: flex;
+				flex-direction: column;
+				width: 10px;
+				min-width: 200px;
+/*				border:1px solid #000;
+*/				height: 100%;
+				background-image: url("{% static 'img/footer_bg.jpg' %}");
+			}
+			canvas{
+				width:600px !important;
+				height:600px !important;
+				margin: 0 auto;
+				margin-bottom: 20px;
+			}
+			.content{
+				display: flex;
+				flex-direction: column;
+				flex:7;
+/*				border:1px solid #000;
+*/				height: 100%;
+				padding:30px;
+			}
+			.side-nav>a{
+				display: block;
+				padding-top:40px;
+				padding-bottom: 40px;
+				text-align: center;
+				background-color: rgb(247,246,246,0.8);
+
+			}
+			.side-nav>a:hover{
+				background-color: #ccc;
+			}
+			th{
+				width: 400px;
+				background-color: #fff;
+				padding:20px;
+				padding-top:30px;
+				padding-bottom: 30px;
+				text-align: left;
+			}
+			table{
+				width: 800px;
+			}
+			td{
+				padding: 20px;
+				background-color: rgba(0,0,0,0.1);
+			}
+			a{
+				color:#f44277;
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	</head>
+
+	<body>
+		{% if status == 'saved' %}
+			<script>
+				alert("Patient created successfully. Default Password: 12345");
+			</script>
+		{% endif %}
+		<div class="container">
+		<div class="side-nav">
+			<div style="height: 140;display: flex;justify-content: center;align-items: center;">
+				<img style="display: block;" width="80" height="100" src="{% static 'img/logo.png' %}">
+			</div>
+			<a href='/patient/information'>Profile</a>
+			<a href="/patient/results">Results</a>
+		</div>
+		<div class="content">
+			<div class="list">
+				<a href="/logout" style="color:pink;">Logout</a>
+			</div>
+			<!-- <img src="" width="40" height="40" style="float: left;"> --><h1>Hi, Patient</h1>
+
+			<h2 style="text-align: center;">OVERALL RESULTS PREDICTION</h2>
+			
+		 <canvas id="barChart"  width="1200"></canvas>
+				<script>
+				var ctx = document.getElementById("barChart").getContext('2d');
+				var myChart = new Chart(ctx, {
+				    type: 'horizontalBar',
+				    data: {
+				        labels: ['time','concavity_se','mean_texture','mean_radius','concave_points_se',
+								'symmetry_se','mean_perimeter','fractal_dimension_se','mean_area',
+								'worst_radius','mean_smoothness','worst_texture','mean_compact','worst_perimeter',
+								'mean_concavity','worst_area','mean_concave_points','worst_smoothness','mean_symmetry',
+								'worst_compactness','radius_se','worst_concavity','mean_fractal_dimension','worst_concave_points',
+								'texture_se','worst_symmetry','perimeter_se','worst_fractal_dimension','smoothness_se','tumor_size'
+								,'compactness_se','lymph_node_status','Area_Se'],
+				        datasets: [{
+				            label:  '# of Votes',
+				            data: {{bar_data}},
+				            backgroundColor: [
+				                // 'rgba(54, 162, 235, 0.2)',
+				            ],
+				            borderColor: [
+				                // 'rgba(54, 162, 235, 1)',
+				            ],
+				            borderWidth: 1
+				        }]
+				    },
+				    options: {
+				        scales: {
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero:true,
+				                    fontSize:18,
+				                }
+				            }]
+				        }
+				    }
+				});
+				myChart();
+				</script>
+		<p style="margin-top: 20px;margin-bottom: 20px;text-align: center;">Attribute Measure</p>
+		<p>Status: <span style="font-weight: bold;">{{result}}</span></p>
+		<!--#<p>Accuracy: <span style="font-weight: bold;">{{score}}%</span></p>-->
+	</div>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+		{% load static %}
+<html>
+	<head>
+		<title>Breast Cancer Recurrence - About</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Aladin|Bai+Jamjuree|Cinzel" rel="stylesheet"> 
+		<style type="text/css">
+		body{
+/*	display: flex;
+*/	height: 100%;
+/*	flex-direction: column;
+*/	background-color: rgb(247,246,246);
+			font-family: Arial;
+			margin: 0px;
+		}
+		a{
+			color: #333;
+			padding:5px;
+		}
+		.list{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+/*	width: 100%;*/
+			padding:10px;
+		}
+		.center-flex{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			padding-left: 200px;
+			padding-right: 200px;
+		}
+		.pink-color{
+			color:#f44277;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.mid-section{
+			display: flex;
+			flex-direction: row;
+/*			align-self: stretch;*/
+/*			flex: 1;*/
+			padding:90px;
+			padding-left: 150px;
+			padding-right: 150px;
+			justify-content: center;
+/*			align-items: center;
+*/			/*height: 500px;*/
+/*			background: url("{% static 'img/home_bg.png'%}") no-repeat center center fixed;
+*/			background-size: cover;
+			margin: 0px;
+
+		}
+		.footer{
+			background: url("{% static 'img/footer_bg.jpg'%}") no-repeat center center fixed;
+			background-size: cover;
+		}
+		input{
+			border:none;
+			background-color: #ffe0e7;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 10px;
+		}
+		textarea{
+			border:none;
+			background-color: #ffe0e7;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 10px;
+		}
+		li{
+			padding:10px;
+			font-size: 20px;
+			color:grey;
+		}
+		i{
+			color:#000000;
+		}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="list">
+			<a href="/login" style="border-right: 1px solid #333">Login</a>
+			<a href="/guest">Guest</a>
+		</div>
+		<div style="display:flex;flex-direction: row;justify-content: center;">
+
+		<img src="{% static "img/logo.png" %}" width="150" height="200" style="position:relative;margin-left: 0 auto;">
+		</div>
+		<div class="list center-flex pink-color" style="margin-top: 40px;border-bottom: 1px #ccc solid;">
+			<a class="pink-color" href="/home">HOME</a>
+			<a class="pink-color" href="/about">ABOUT</a>
+			<a class="pink-color" href="/contact">CONTACT</a>
+		</div>
+		<div class="mid-section">
+			<div>
+			<form action="/contact" method="POST" style="display: flex;flex-direction: column;padding:40px;background-color: #ffd6df;border-radius: 10px;">
+				<input name="name" type="text" placeholder="YOUR FULL NAME">
+				<input name="email" type="text" placeholder="E-MAIL ADDRESS">
+				<textarea name="message"  placeholder="ENTER YOUR MESSAGE HERE" style="height: 250px;width: 350px;"></textarea>
+				<button type="submit" style="margin: 0 auto;">submit</button>
+			</form>
+		</div>
+		<div style="position: relative;">
+			<ul style="display: block;list-style: none;">
+				<li><i class="fas fa-envelope"></i>&nbsp;<span>Rteam_contactus@gmail.com</span></li>
+				<li><i class="fas fa-phone"></i>&nbsp;+966555555</li>
+			</ul>
+						<div style="display: block;position: absolute;bottom: 100px;list-style: none;width: 100%;font-family: Cinzel,sans-serif;color:grey">
+							<p style="text-align: center;display: block;font-family: Cinzel,sans-serif;font-size: 2em;margin-bottom: 0px;">FOLLOW US</p>
+							<hr style="width: 50px;margin-top:10px">
+							<div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;box-sizing: border-box;padding-left: 20%;padding-right: 20%">
+								<img style="display: block" height="50" width="50" src="{% static 'img/ig.png'%}">
+								<img style="display: block" height="50" width="50" src="{% static 'img/tw.png'%}">
+								<img style="display: block" height="50" width="60" src="{% static 'img/fb.png'%}">
+							</div>
+						</div>
+		</div>
+
+
+		<div>
+			
+		</div>
+		</div>
+
+		<div class="footer">
+			<p style="text-align: center;padding:20px;margin: 0px;">Copyright &copy; R Team. All rights.</p>
+		</div>
+	</body>
+</html>

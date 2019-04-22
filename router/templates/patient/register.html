@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Patients - Register</title>
+		<style type="text/css">
+			input{
+				border:none;
+				background-color: #ffe0e7;
+				padding:10px;
+				border-radius: 10px;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="/patient/register" method="POST" style="display: flex;flex-direction: column;padding: 20px;width:400px;margin: 0 auto;
+			background-color: #ffd6df;border-radius: 10px;">
+			{% csrf_token %}
+			{{form}}
+			<button type="submit" style="margin: 0 auto;margin-top: 20px;">Register</button>
+		</form>
+	</body>
+</html>

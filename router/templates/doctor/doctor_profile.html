@@ -1,0 +1,127 @@
+{% load static %}
+<html>
+	<head>
+		<title>Doctor - Patients</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<style type="text/css">
+			body{
+				margin:0px;
+				background-color: rgb(247,246,246);
+				font-family: Arial;
+			}
+			.container{
+				display: flex;
+				flex-direction: row;
+				height: 100%;
+				flex:1;
+			}
+					.list{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+/*	width: 100%;*/
+			padding:10px;
+		}
+			.side-nav{
+				display: flex;
+				flex-direction: column;
+				width: 10px;
+				min-width: 200px;
+/*				border:1px solid #000;
+*/				height: 100%;
+				background-image: url("{% static 'img/footer_bg.jpg' %}");
+			}
+			.content{
+				display: flex;
+				flex-direction: column;
+				flex:7;
+/*				border:1px solid #000;
+*/				height: 100%;
+				padding:30px;
+			}
+			.side-nav>a{
+				display: block;
+				padding-top:40px;
+				padding-bottom: 40px;
+				text-align: center;
+				background-color: rgb(247,246,246,0.8);
+
+			}
+			.side-nav>a:hover{
+				background-color: #ccc;
+			}
+			th{
+				width: 400px;
+				background-color: #fff;
+				padding:20px;
+				padding-top:30px;
+				padding-bottom: 30px;
+				text-align: left;
+			}
+			table{
+				width: 800px;
+			}
+			td{
+				padding: 20px;
+				background-color: rgba(0,0,0,0.1);
+			}
+			a{
+				color:#f44277;
+			}
+			.field{
+				display: flex;
+				/*margin: 0 auto;*/
+				align-content: center;
+				padding:10px;
+				background-color: #ccc;
+				border-radius: 3px;
+				margin-left: 10px;
+				margin-top: 10px;
+				margin-bottom:10px;
+				width: 40%;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="container">
+		<div class="side-nav">
+			<div style="height: 140;display: flex;justify-content: center;align-items: center;">
+				<img style="display: block;" width="80" height="100" src="{% static 'img/logo.png' %}">
+			</div>
+			<a href='/doctor/profile'>Profile</a>
+			<a href="/doctor/view/patients">Patients</a>
+			<a href="/doctor/patients/predict">Results</a>
+		</div>
+		<div class="content">
+			<div class="list">
+				<a href="/logout" style="color:pink;">Logout</a>
+			</div>
+			<!-- <img src="" width="40" height="40" style="float: left;"> --><h1>Hi, Admin/Doctor</h1>
+			<form action="/doctor/patient/search" method='GET' style="width: 200px;">
+				<input type="text" placeholder="Search" style="border:1px solid #000;border-radius: 30px;padding:10px;">
+			</form>
+			<div style="width: 70%;display: flex;flex-direction: column;padding: 20px;height: 100%;margin:0 auto;background-color: #fff;">
+				<div style="display: flex;flex-direction: row;justify-content: center;margin-bottom: 50px;">
+					<i class="fas fa-user" style="font-size:5em;padding:30px;background-color: #ccc;border-radius:50%;"></i>
+				</div>
+				<div style="display: flex;flex-direction: row;justify-content: center;">
+					<img src="{% static '/img/id.png'%}" width="50" height="50">
+					<span class="field">{{id}}</span>
+				</div>
+				<div style="display: flex;flex-direction: row;justify-content: center;">
+					<img src="{% static '/img/contact.png'%}" width="50" height="50">
+					<span class="field">{{contact}}</span>
+				</div>
+				<div style="display: flex;flex-direction: row;justify-content: center;">
+					<img src="{% static '/img/mail.png'%}" width="50" height="50">
+					<span class="field">{{mail}}</span>
+				</div>
+				<div style="display: flex;flex-direction: row;justify-content: center;">
+					<img src="{% static '/img/location.png'%}" width="50" height="50">
+					<span class="field">{{location}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

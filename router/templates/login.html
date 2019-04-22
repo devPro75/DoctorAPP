@@ -1,0 +1,119 @@
+		{% load static %}
+<html>
+	<head>
+		<title>Breast Cancer Recurrence - About</title>
+		<link href="https://fonts.googleapis.com/css?family=Aladin|Bai+Jamjuree|Cinzel" rel="stylesheet"> 
+		<style type="text/css">
+		body{
+/*	display: flex;
+*/	height: 100%;
+/*	flex-direction: column;
+*/	background-color: rgb(247,246,246);
+			font-family: Arial;
+			margin: 0px;
+		}
+		a{
+			color: #333;
+			padding:5px;
+		}
+		.list{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+/*	width: 100%;*/
+			padding:10px;
+		}
+		.center-flex{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			padding-left: 200px;
+			padding-right: 200px;
+		}
+		.pink-color{
+			color:#f44277;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.mid-section{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+/*			align-self: stretch;*/
+/*			flex: 1;*/
+			padding:90px;
+			padding-left: 150px;
+			padding-right: 150px;
+			/*height: 500px;*/
+/*			background: url("{% static 'img/home_bg.png'%}") no-repeat center center fixed;
+*/			background-size: cover;
+			margin: 0px;
+
+		}
+		.footer{
+			background: url("{% static 'img/footer_bg.jpg'%}") no-repeat center center fixed;
+			background-size: cover;
+		}
+		tr{
+			text-align: right;
+		}
+		table
+		{
+/*		    border-collapse:separate;
+		    border-spacing:0 5px;*/
+		}
+		input{
+			border:none;
+			background-color: #ffe0e7;
+			padding: 10px;
+			border-radius: 10px;
+		}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="list">
+			<a href="/login" style="border-right: 1px solid #333">Login</a>
+			<a href="/guest">Guest</a>
+		</div>
+		<div style="display:flex;flex-direction: row;justify-content: center;">
+
+		<img src="{% static "img/logo.png" %}" width="150" height="200" style="position:relative;margin-left: 0 auto;">
+		</div>
+		<div class="list center-flex pink-color" style="margin-top: 40px;border-bottom: 1px #ccc solid;">
+			<a class="pink-color" href="/home">HOME</a>
+			<a class="pink-color" href="/about">ABOUT</a>
+			<a class="pink-color" href="/contact">CONTACT</a>
+		</div>
+		<div class="mid-section">
+			<!-- <div> -->
+			<form action='/login' method="POST" style="display: flex;flex-direction: column;padding:40px;border-radius: 10px;width: 400px;background-color: #ffd6df">
+				{%csrf_token%}
+				<h1 style="text-align: center;font-family: Cinzel,sans-serif">LOGIN</h1>
+				<div style="padding:15px;display:flex;flex-direction: row;justify-content: space-between;">
+					<div><label for="admin">Admin</label>
+					<input id="admin" type="radio" name="job" value="Admin"></div>
+					<div>
+						<label for="doctor">Doctor</label>
+						<input id="doctor" type="radio" name="job" value="Doctor">
+					</div>
+					<div>
+						<label for="patient">Patient</label>
+						<input id="patient" type="radio" name="job" value="Patient">
+					</div>
+				</div>
+				<table>
+					<tr><td><label for="id">ID</label></td><td><input id='id' type="text" name="id"></td></tr>
+					<tr><td><label>Password</label></td><td><input type="password" name="password"></td></tr>
+				</table>
+				<button type="submit" style="width: 100px;margin: 0 auto;">login</button>
+			</form>
+		<!-- </div> -->
+		</div>
+
+		<div class="footer">
+			<p style="text-align: center;padding:20px;margin: 0px;">Copyright &copy; R Team. All rights.</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+		{% load static %}
+<html>
+	<head>
+		<title>Breast Cancer Recurrence - About</title>
+		<link href="https://fonts.googleapis.com/css?family=Aladin|Bai+Jamjuree|Cinzel" rel="stylesheet"> 
+		<style type="text/css">
+		body{
+/*	display: flex;
+*/	height: 100%;
+/*	flex-direction: column;
+*/	background-color: rgb(247,246,246);
+			font-family: Arial;
+			margin: 0px;
+		}
+		a{
+			color: #333;
+			padding:5px;
+		}
+		.list{
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+/*	width: 100%;*/
+			padding:10px;
+		}
+		.center-flex{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			padding-left: 200px;
+			padding-right: 200px;
+		}
+		.pink-color{
+			color:#f44277;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.mid-section{
+			display: flex;
+			flex-direction: column;
+/*			align-self: stretch;*/
+/*			flex: 1;*/
+			padding:90px;
+			padding-left: 150px;
+			padding-right: 150px;
+			/*height: 500px;*/
+/*			background: url("{% static 'img/home_bg.png'%}") no-repeat center center fixed;
+*/			background-size: cover;
+			margin: 0px;
+
+		}
+		.footer{
+			background: url("{% static 'img/footer_bg.jpg'%}") no-repeat center center fixed;
+			background-size: cover;
+		}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="list">
+			<a href="/login" style="border-right: 1px solid #333">Login</a>
+			<a href="/guest">Guest</a>
+		</div>
+		<div style="display:flex;flex-direction: row;justify-content: center;">
+
+		<img src="{% static "img/logo.png" %}" width="150" height="200" style="position:relative;margin-left: 0 auto;">
+		</div>
+		<div class="list center-flex pink-color" style="margin-top: 40px;border-bottom: 1px #ccc solid;">
+			<a class="pink-color" href="/home">HOME</a>
+			<a class="pink-color" href="/about">ABOUT</a>
+			<a class="pink-color" href="/contact">CONTACT</a>
+		</div>
+		<div class="mid-section">
+			<div style="display: flex; flex-direction: row;justify-content: space-between;margin-bottom: 20px;">
+				<img src="{% static 'img/hands.jpg' %}" height="250" style="display: block;margin-right: 40px;">
+				<div style="display: block;">
+					<p style="text-align: center;font-family: Cinzel,sans-serif;font-size:1.5em;font-weight: bold;">WHO WE ARE</p>
+				<span style="text-align: justify;">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+			</div>
+			</div>
+			<div style="display: flex; flex-direction: row;justify-content: space-between;">
+				<div style="display: block;">
+					<p style="text-align: center;font-family: Cinzel,sans-serif;font-size:1.5em;font-weight: bold;">FUTURE</p>
+				<span style="text-align: justify;">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+			</div>
+				<img src="{% static 'img/hold.jpg' %}" height="250" style="display: block;margin-left: 40px;">
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<p style="text-align: center;padding:20px;margin: 0px;">Copyright &copy; R Team. All rights.</p>
+		</div>
+	</body>
+</html>
